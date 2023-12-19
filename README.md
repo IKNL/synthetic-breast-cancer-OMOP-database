@@ -18,7 +18,7 @@ IMPORTANT: This repository does not contain the synthetic data. You can request 
 3. The vocabulary files are large. Therefore they are zipped in the `./init/vocab` folder. Unzip them in the `./init/vocab` folder before starting the database.
 4. Navigate to the directory containing the `docker-compose.yaml` file.
 5. Run `docker compose up` (or `docker compose up -d` to detach the process from your terminal).
-6. Wait for a long time until you see `ready to accept new connections`.
+6. Wait for a long time until you see `database system is ready to accept connections`.
 7. Now you have a working OMOP database.
 
 Note: in case you want to have multiple databases running on your machine you can uncomment the `db2` section in the `docker-compose.yaml` file and change the `csv` path `/data/alternative.csv` to the correct path. In this case pgadmin is only connected to the first instance. You can manually add this instance to the pgadmin by logging in to the pgadmin interface and adding a new server with the credentials given in the `docker-compose.yaml` file.
