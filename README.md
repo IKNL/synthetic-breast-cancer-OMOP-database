@@ -4,7 +4,7 @@ IMPORTANT: This repository does not contain the synthetic data. You can request 
 
 
 ## Preliminaries
-* Request the synthetic data from https://iknl.nl/en/ncr/synthetic-dataset and mention `synthetic omop dataset` in the form.
+* Request the synthetic data from [here](https://iknl.nl/en/ncr/synthetic-dataset) and mention `synthetic omop dataset` in the form.
 * Docker installed
 * Clone this repository
 
@@ -13,10 +13,11 @@ IMPORTANT: This repository does not contain the synthetic data. You can request 
 
 1. Place the `.csv` file you obtained from iknl inside the `./data/` folder. There is a `README.txt` in that directory telling you the same
 2. Verify that the name of you `.csv` file is identical to the name in the `docker-compose.yaml` file. If not, change it to the correct name
-3. Navigate to the directory containing the `docker-compose.yaml` file
-4. Run `docker compose up` (or `docker compose up -d` to detach the process from your terminal)
-5. Wait for a long time untill you see `ready to accept new connections`
-6. Now you have a working OMOP database
+3. The vocabulairy files are large. Therefore they are zipped in the `./init/vocab` folder. Unzip them before starting the database.
+4. Navigate to the directory containing the `docker-compose.yaml` file
+5. Run `docker compose up` (or `docker compose up -d` to detach the process from your terminal)
+6. Wait for a long time untill you see `ready to accept new connections`
+7. Now you have a working OMOP database
 
 Note: in case you want to have multiple databases running on your machine you can uncomment the
 `db2` section in the `docker-compose.yaml` file and change the `csv` path `/data/alternative.csv` to the correct path. In this case the pgadmin is only connected to the first instance. You can manually add this instance to the pgadmin by logging in to the pgadmin interface and adding a new server with the credentials given in the `docker-compose.yaml` file.
