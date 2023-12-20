@@ -16,11 +16,10 @@ IMPORTANT: This repository does not contain the synthetic data. You can request 
 1. Place the `.csv` file you obtained from iknl inside the `./init/data` folder. There is a `README.txt` in that directory telling you the same.
 2. Obtain the snowmed vocabulary files from [Athena](https://athena.ohdsi.org/), see the `README.txt` in the `./init/vocab` folder for more information.
 3. Verify that the name of your `.csv` file is identical to the name in the `docker-compose.yaml` file. If not, change it to the correct name.
-4. The vocabulary files are large. Therefore they are zipped in the `./init/vocab` folder. Unzip them in the `./init/vocab` folder before starting the database.
-5. Navigate to the directory containing the `docker-compose.yaml` file.
-6. Run `docker compose up` (or `docker compose up -d` to detach the process from your terminal).
-7. Wait for a long time until you see `database system is ready to accept connections`.
-8. Now you have a working OMOP database.
+4. Navigate to the directory containing the `docker-compose.yaml` file.
+5. Run `docker compose up` (or `docker compose up -d` to detach the process from your terminal).
+6. Wait for a long time until you see `database system is ready to accept connections`.
+7. Now you have a working OMOP database.
 
 Note: in case you want to have multiple databases running on your machine you can uncomment the `db2` section in the `docker-compose.yaml` file and change the `csv` path `/data/alternative.csv` to the correct path. In this case pgadmin is only connected to the first instance. You can manually add this instance to the pgadmin by logging in to the pgadmin interface and adding a new server with the credentials given in the `docker-compose.yaml` file.
 
