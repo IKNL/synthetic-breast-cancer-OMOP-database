@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: omopcdm_synthetic
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-data1:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d
       - ./data/NKR_IKNL_breast_syntheticdata.csv:/mnt/data.csv
     ports:
@@ -40,7 +40,7 @@ services:
     image: dpage/pgadmin4
     restart: always
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
+      - ./pgadmin-data2:/var/lib/pgadmin
       - ./default-server.json:/pgadmin4/servers.json
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
