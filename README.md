@@ -80,7 +80,7 @@ All the .sql files in this folder are executed on initialization in numerical or
 
 This file makes sure the pgadmin already has the omop database server attached.
 
-## pgadmin-data & postgres-data
+## pgadmin-data & postgres-data[1,2]
 
 Mount for the pgadmin-data container. This allows for persistent storage even when
 the container is stopped. Deleting these folders will remove all settings and data
