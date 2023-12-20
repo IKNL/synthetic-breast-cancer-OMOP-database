@@ -13,7 +13,7 @@ IMPORTANT: This repository does not contain the synthetic data. You can request 
 
 # Initial Setup
 
-1. Place the `.csv` file you obtained from iknl inside the `./init/data` folder. There is a `README.txt` in that directory telling you the same.
+1. Place the `.csv` file you obtained from iknl inside the `./data` folder. There is a `README.txt` in that directory telling you the same.
 2. Obtain the necessary vocabulary files from [Athena](https://athena.ohdsi.org/), see the `README.txt` in the `./init/vocab` folder for more information.
 3. Verify that the name of your `.csv` file is identical to the name in the `docker-compose.yaml` file. If not, change it to the correct name.
 4. Navigate to the directory containing the `docker-compose.yaml` file.
