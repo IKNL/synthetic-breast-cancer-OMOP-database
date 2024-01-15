@@ -1,6 +1,10 @@
 # Use postgres/example user/password credentials
 version: '3.1'
 
+volumes:
+  atlasdb-postgres-data:
+    name: atlasdb-postgres-data
+
 services:
 
   db1:
@@ -48,8 +52,35 @@ services:
     ports:
       - "5050:80"
 
-  #adminer:
-  #  image: adminer
-  #  restart: always
-  #  ports:
-  #    - 8080:8080
+  ohdsi-webapi-from-image:
+    image: ohdsi/webapi:latest
+    extends:
+      file: ohdsi-webapi.yaml
+      service: ohdsi-webapi
+
+  ohdsi-atlas-from-image:
+    image: ohdsi/atlas:latest
+    extends:
+      file: ohdsi-atlas.yaml
+      service: ohdsi-atlas
+
+  broadsea-atlasdb:
+    image: ohdsi/broadsea-atlasdb:2.0.0
+    container_name: broadsea-atlasdb
+    platform: "linux/amd64"
+    cpus: 2
+    mem_limit: "2G"
+    environment:
+      - POSTGRES_PASSWORD=mypass
+    ports:
+      - "5432:5432"
+    volumes:
+     - atlasdb-postgres-data:/var/lib/postgresql/data
+    #  - ./100_populate_source_source_daimon.sql:/docker-entrypoint-initdb.d/100_populate_source_source_daimon.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+
